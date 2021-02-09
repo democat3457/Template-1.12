@@ -2,15 +2,18 @@
 {
   "modid": "examplemod",
   "name": "Example Mod",
-  "description": "Example placeholder mod.",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "",
+  "description": "Excellent description here!",
+  "credits": "Created by democat",
+  "logoFile": "assets/examplemod/logo.png",
+  "url": "https://democat3457.github.io/",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
-  "logoFile": "",
+  "authorList": [ "democat" ],
+  "parent":"",
   "screenshots": [],
-  "dependencies": []
+  "dependencies": [
+     "mod_MinecraftForge"
+  ]
 }
 ]
