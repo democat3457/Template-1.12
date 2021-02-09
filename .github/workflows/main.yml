@@ -1,0 +1,36 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Curseforge Upload
+
+# Controls when the action will run. 
+on: [ push, pull_request, workflow_dispatch ]
+
+env:
+  PROJECT_ID: 2
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  upload:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Upload to CF
+      - name: Upload to CurseForge
+        id: curseforge_upload
+        uses: itsmeow/curseforge-upload@master
+        with:
+          token: ${{ secrets.CF_API_TOKEN }}
+          project_id: env.PROJECT_ID
+          game_endpoint: minecraft
+          file_path: test_jar.jar
+          changelog: Test changelog message!
+          display_name: Test Jar
+          game_versions: minecraft-1-12:1.12.2,4458,2:Java 7,Minecraft 1.12:1-12,1.12.1,Forge
+          release_type: alpha
+          relations: betteranimalsplus:incompatible,claimit:optionalDependency
