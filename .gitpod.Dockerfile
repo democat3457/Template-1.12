@@ -13,4 +13,6 @@ USER gitpod
 
 RUN bash -c ". /home/gitpod/.sdkman/bin/sdkman-init.sh \
     && sdk upgrade \
+    && sdk uninstall java 11.0.10.fx-zulu \
+    && sdk install java 11.0.10.hs-adpt \
     && sdk install java 8.0.282-open"
